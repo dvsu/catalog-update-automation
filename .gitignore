@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Extremely big files which can be downloaded locally
+/supplier-data
