@@ -30,7 +30,7 @@ def get_item_description(base_path:str, filename:str) -> dict:
 
 def upload_description(data:dict) -> None:
     response = requests.post('http://{}/fruits/'.format(PUBLIC_IP), json=data)
-    print(response.status_code)
+    # print(response.status_code)
 
 
 BASE_PATH = './supplier-data/descriptions'
@@ -40,5 +40,4 @@ if __name__ == "__main__":
 
     for filename in os.listdir(BASE_PATH):
         item_desc = get_item_description(base_path=BASE_PATH, filename=filename)
-        print(item_desc)
-        #upload_description(data=item_desc)
+        upload_description(data=item_desc)
