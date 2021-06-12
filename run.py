@@ -11,7 +11,7 @@ def get_item_description(base_path:str, filename:str) -> dict:
 
     with open('{}/{}'.format(base_path, filename), 'r', encoding="utf8") as file:
             
-        header = ["name", "weight", "description", "image_name"]
+        header = ["name", "weight", "description"]
 
         data = {}
         for order, line in enumerate(file):
@@ -21,8 +21,6 @@ def get_item_description(base_path:str, filename:str) -> dict:
 
             if header[order] == "weight":
                 data[header[order]] = int(line.split(' ')[0])
-            elif header[order] == "image_name":
-                data[header[order]] = filename.replace('txt', 'jpeg')
             else:
                 data[header[order]] = line.strip()
 
@@ -42,5 +40,5 @@ if __name__ == "__main__":
 
     for filename in os.listdir(BASE_PATH):
         item_desc = get_item_description(base_path=BASE_PATH, filename=filename)
-        #print(item_desc)
-        upload_description(data=item_desc)
+        print(item_desc)
+        #upload_description(data=item_desc)
